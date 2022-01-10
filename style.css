@@ -33,6 +33,12 @@ h1 {
     color: #fff;
 }
 
+.button:active {
+    cursor: pointer;
+    opacity: 0.4;
+    color: #fff;
+}
+
 .screen {
     text-align: right;    
 }

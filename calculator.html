@@ -28,7 +28,7 @@
         </div>
         <div class="row g-3">
             <div class="col-3">
-                <p class="button number">7</p>
+                <p class="button number"><span>7</span></p>
             </div>
             <div class="col-3">
                 <p class="button number">8</p>
@@ -37,7 +37,7 @@
                 <p class="button number">9</p>
             </div>
             <div class="col-3">
-                <p class="button operator">
+                <p class="button operator division" id="division">
                     <i class="fa-solid fa-divide"></i>
                 </p>
             </div>
@@ -53,7 +53,7 @@
                 <p class="button number">6</p>
             </div>
             <div class="col-3">
-                <p class="button operator">
+                <p class="button operator multiplication" id="multiplication">
                     <i class="fa-solid fa-xmark"></i>
                 </p>
             </div>
@@ -69,23 +69,23 @@
                 <p class="button number">3</p>
             </div>
             <div class="col-3">
-                <p class="button operator">
+                <p class="button operator subtraction" id="subtraction">
                     <i class="fa-solid fa-minus"></i>
                 </p>
             </div>
         </div>
         <div class="row g-3">
             <div class="col-3">
-                <p class="button del-reset">CE</p>
+                <p class="button del-reset" id="clear-entry">CE</p>
             </div>
             <div class="col-3">
                 <p class="button number">0</p>
             </div>
             <div class="col-3">
-                <p class="button del-reset">C</p>
+                <p class="button del-reset" id="clear">C</p>
             </div>
             <div class="col-3">
-                <p class="button operator">
+                <p class="button operator addition" id="addition">
                     <i class="fa-solid fa-plus"></i>
                 </p>
             </div>
@@ -93,11 +93,11 @@
         <div class="row g-3">
             <div class="col-9">
                 <p class="button equals">
-                    <i class="fa-solid fa-equals button"></i>
+                    <i class="fa-solid fa-equals"></i>
                 </p>
             </div>
             <div class="col-3">
-                <p class="button operator del-reset">
+                <p class="button del-reset" id="delete">
                     <i class="fa-solid fa-delete-left"></i>
                 </p>
             </div>
@@ -108,6 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="calculus.js"></script>
 </body>
 
 </html>
