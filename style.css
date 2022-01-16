@@ -47,7 +47,8 @@ h1 {
     font-size: 3rem;
     padding: 0 2rem;
     background: rgb(77, 80, 82);
-    border-radius: 0 0 5px 5px;    
+    border-radius: 0 0 5px 5px;
+    min-height: 72px;   
 }
 
 .secondary-screen {
@@ -58,6 +59,7 @@ h1 {
     border-radius: 5px 5px 0 0;
     padding: 0 2rem;
     color: #A0A0A0;
+    min-height: 36px;    
 }
 
 .button.number {

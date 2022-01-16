@@ -1,21 +1,16 @@
 // When I click a number button, get the number associated to it (string type) in a variable ($digit)
-let digit = "0";
-let mainScreenNb = "";
-let secondaryScreenNb = "";
-let result;
-let operation;
-let firstOperand = 0;
-let secondOperand = 0;
+let mainScreenNb = "0"; // (string) The value displayed on main screen
+let secondaryScreenNb = ""; // (string) The value displayed on main screen
+let result; // (number) The value calculated after pressing equal button
+let operation; // (string) Type of operation to perform, computed after pressing one of the 4 operation buttons
+let firstOperand = 0; // (number) The value stored for the first operand
+let secondOperand = 0; // (number) The value stored for the first operand
 
-console.log(mainScreenNb);
-
-
-// Get the number corresponding to each number button after they are pressed
+// Get the number corresponding to each number button after they are pressed and display it on main screen
 document.querySelectorAll(".button.number").forEach(number => {
     // console.log(number);
     number.addEventListener("click", function (event) {
-        digit = event.target.innerText;
-        formNumber(digit);
+        mainScreenNb += event.target.innerText;
         displayMainScreen(mainScreenNb);
     });
 });
@@ -24,25 +19,25 @@ document.querySelectorAll(".button.number").forEach(number => {
 document.querySelector(".button.operator.division").addEventListener("click", () => {
     operation = "division";
     getFirstOperand();
-    resetMainScreen();
+    resetMainScreenNb();
 });
 
 document.querySelector(".button.operator.multiplication").addEventListener("click", () => {
     operation = "multiplication";
     getFirstOperand();
-    resetMainScreen();
+    resetMainScreenNb();
 });
 
 document.querySelector(".button.operator.subtraction").addEventListener("click", () => {
     operation = "subtraction";
     getFirstOperand();
-    resetMainScreen();
+    resetMainScreenNb();
 });
 
 document.querySelector(".button.operator.addition").addEventListener("click", () => {
     operation = "addition";
     getFirstOperand();
-    resetMainScreen();
+    resetMainScreenNb();
 });
 
 document.querySelector(".button.equals").addEventListener("click", () => {
@@ -55,46 +50,41 @@ document.querySelector("#clear").addEventListener("click", clear);
 document.querySelector("#clear-entry").addEventListener("click", clearEntry);
 
 function displayMainScreen(number) {
-    document.querySelector(".main-screen").innerText = parseInt(number);
+    document.querySelector(".main-screen").innerText = parseFloat(number);
 }
 
-function resetMainScreen() {
-    mainScreenNb = "";
+function resetMainScreenNb() {
+    mainScreenNb = "0";
 }
 
 function displaySecondaryScreen(number) {
     document.querySelector(".secondary-screen").innerText = parseInt(number);
 }
 
-function formNumber(digit) {
-    mainScreenNb += digit;
-}
 
 function getFirstOperand() {
     if (result !== undefined) {
         firstOperand = result;
-    } else if (mainScreenNb === "") {
-        firstOperand = 0;
     } else {
-        firstOperand = parseInt(mainScreenNb);
+        firstOperand = parseFloat(mainScreenNb);
     }
     console.log("First operand is: " + firstOperand);
 }
 
 function getSecondOperand() {
-    if (mainScreenNb === "") {
+    if (mainScreenNb === "0") {
         secondOperand = 0;
     } else {
-        secondOperand = parseInt(mainScreenNb);
+        secondOperand = parseFloat(mainScreenNb);
     }
     console.log("Second operand is: " + secondOperand);
 }
 
 function clear() {    
     // console.log("cleared");
-    mainScreenNb = "0";
+    resetMainScreenNb();
     result = undefined;
-    roperation = undefined;
+    operation = undefined;
     firstOperand = 0;
     secondOperand = 0;
     displayMainScreen(mainScreenNb);
@@ -103,15 +93,17 @@ function clear() {
 
 function clearEntry() {    
     // console.log("cleared");
-    mainScreenNb = "0";
+    resetMainScreenNb();
     displayMainScreen(mainScreenNb);
 }
 
-function getResult(btn) {    
+function getResult() {    
     result = doOperation(firstOperand, secondOperand);
-    displayMainScreen(result);
+    mainScreenNb = result;
+    displayMainScreen(mainScreenNb);
     firstOperand = result;
-    console.log("getResult " + firstOperand);
+    console.log("getResult firstOperand: " + firstOperand);
+    console.log("getResult result: " + result);
 }
 
 
